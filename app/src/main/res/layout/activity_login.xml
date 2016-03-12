@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.libardomunoz.motivabici.LoginActivity"
     android:weightSum="1"
-    android:background="#264d1b">
+    android:background="#37c5b7">
 
     <!-- Login progress -->
     <ProgressBar
