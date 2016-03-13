@@ -99,6 +99,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 startActivity(new Intent(LoginActivity.this, FullscreenActivity.class));
             }
         });
+        findViewById(R.id.button4).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, Recorrido.class));
+            }
+        });
     }
 
     private void populateAutoComplete() {
