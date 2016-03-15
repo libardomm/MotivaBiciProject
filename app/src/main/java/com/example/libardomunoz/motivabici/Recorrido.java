@@ -33,6 +33,7 @@ public class Recorrido extends AppCompatActivity {
     }
 
     public void iniciarRecorrido(View view){
+        cronometro.setBase(SystemClock.elapsedRealtime());
         cronometro.start();
 
         ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
