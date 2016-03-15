@@ -8,26 +8,75 @@ import android.widget.Button;
 import android.widget.Chronometer;
 
 public class Recorrido extends AppCompatActivity {
-Button iniciar,stop, restablecer;
-    Chronometer cronometro;
-    @Override
 
+    Button iniciar, pausar, detener, reestablecer;
+    Chronometer cronometro;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recorrido);
-        cronometro=(Chronometer)findViewById(R.id.cronometro1);
-        iniciar=(Button)findViewById(R.id.bttEmpezar);
-        stop=(Button)findViewById(R.id.bttTerminar);
-        restablecer=(Button)findViewById(R.id.bttRestablecer);
-    }
-    public void iniciar(View v){
-   cronometro.start();
+        cronometro = (Chronometer)findViewById(R.id.cronometro);
+        iniciar = (Button)findViewById(R.id.botonIniciar);
+        pausar = (Button)findViewById(R.id.botonPausar);
+        detener = (Button)findViewById(R.id.botonDetener);
+        reestablecer=(Button)findViewById(R.id.botonReestablecer);
 
+        iniciar.setEnabled(true);
+        pausar.setEnabled(false);
+        detener.setEnabled(false);
+        reestablecer.setEnabled(false);
     }
-    public void detener(View v){
+
+    public void iniciarRecorrido(View view){
+        cronometro.start();
+
+        iniciar.setEnabled(false);
+        pausar.setEnabled(true);
+        detener.setEnabled(true);
+        reestablecer.setEnabled(false);
+        if(pausar.getText().equals("Continuar")){
+            pausar.setText("Pausar");
+        }
+    }
+
+    public void pausarRecorrido(View view){
+        if(pausar.getText().equals("Pausar")){
+            pausar.setText("Continuar");
+        }
+        else{
+            pausar.setText("Pausar");
+            reestablecer.setEnabled(true);
+        }
+
+        iniciar.setEnabled(false);
+        pausar.setEnabled(true);
+        detener.setEnabled(false);
+        reestablecer.setEnabled(false);
+    }
+
+    public void detenerRecorrido(View view){
         cronometro.stop();
+
+        iniciar.setEnabled(false);
+        pausar.setEnabled(false);
+        detener.setEnabled(true);
+        reestablecer.setEnabled(true);
+        if(pausar.getText().equals("Continuar")){
+            pausar.setText("Pausar");
+        }
     }
-    public void restablecer(View v){
+
+    public void restablecerCronometro(View view){
         cronometro.setBase(SystemClock.elapsedRealtime());
+
+        iniciar.setEnabled(true);
+        pausar.setEnabled(false);
+        detener.setEnabled(false);
+        reestablecer.setEnabled(false);
+        if(pausar.getText().equals("Continuar")){
+            pausar.setText("Pausar");
+        }
     }
+
 }

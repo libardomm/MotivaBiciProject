@@ -10,17 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.libardomunoz.motivabici.LoginActivity"
     android:weightSum="1"
-    android:background="#37c5b7">
+    android:background="#02ad9a">
 
     <!-- Login progress -->
+
     <ProgressBar
-        android:id="@+id/login_progress"
         style="?android:attr/progressBarStyleLarge"
-        android:layout_width="44dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone"
-        android:layout_weight="0.36" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/login_progress"
+        android:indeterminate="false" />
 
     <ScrollView
         android:id="@+id/login_form"
@@ -40,14 +39,15 @@
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
-                    android:id="@+id/email"
+                    android:id="@+id/usuarioField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
+                    android:hint="E-Mail"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:background="#ccc5c5" />
+                    android:background="#ccc5c5"
+                    android:textSize="20dp" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -56,22 +56,23 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/password"
+                    android:id="@+id/passwordField"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:background="#ccc5c5" />
+                    android:background="#ccc5c5"
+                    android:hint="Contraseña"
+                    android:textSize="20dp" />
 
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/email_sign_in_button"
+                android:id="@+id/ingresarButton"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,15 +80,17 @@
                 android:text="Ingresar"
                 android:textStyle="bold"
                 android:layout_weight="15.97"
-                android:background="#12b02a" />
+                android:background="#12b02a"
+                android:textSize="25sp"
+                android:onClick="iniciarSesion" />
 
         </LinearLayout>
     </ScrollView>
 
     <ImageView
-        android:layout_width="161dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:id="@+id/imagenRecorridoIngreso"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.42"
         android:src="@drawable/ic_launcher" />
@@ -95,15 +98,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recorrido[Test]"
-        android:id="@+id/button4"
+        android:text="Recorrido [Test]"
+        android:id="@+id/recorridoTestButton"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="71dp"
         android:layout_height="20dp"
         android:text="Acerca de"
-        android:id="@+id/button"
+        android:id="@+id/informacionButton"
         android:layout_gravity="right"
         android:layout_weight="0.10"
         android:textSize="7dp" />
