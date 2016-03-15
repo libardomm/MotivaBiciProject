@@ -100,7 +100,8 @@
         android:layout_height="wrap_content"
         android:text="Recorrido [Test]"
         android:id="@+id/recorridoTestButton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:nestedScrollingEnabled="false" />
 
     <Button
         android:layout_width="71dp"
