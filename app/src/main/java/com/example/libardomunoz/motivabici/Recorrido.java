@@ -9,6 +9,8 @@ import android.widget.Chronometer;
 
 public class Recorrido extends AppCompatActivity {
 
+    //Cambio en el cronometro del recorrido
+
     Button iniciar, pausar, detener, reestablecer;
     Chronometer cronometro;
 
