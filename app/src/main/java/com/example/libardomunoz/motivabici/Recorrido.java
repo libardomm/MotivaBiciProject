@@ -48,12 +48,27 @@ public class Recorrido extends AppCompatActivity {
     }
 
     public void pausarRecorrido(View view){
+
         if(pausar.getText().equals("Pausar")){
+            cronometro.stop();
             ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
             pausar.setText("Continuar");
             androidImageField.setImageResource(R.drawable.pause);
         }
         else {
+
+            int stoppedMilliseconds = 0;
+
+            String chronoText = cronometro.getText().toString();
+            String array[] = chronoText.split(":");
+            if (array.length == 2) {
+                stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 1000 + Integer.parseInt(array[1]) * 1000;
+            } else if (array.length == 3) {
+                stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000 + Integer.parseInt(array[1]) * 60 * 1000 + Integer.parseInt(array[2]) * 1000;
+            }
+
+            cronometro.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
+            cronometro.start();
             ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
             pausar.setText("Pausar");
             reestablecer.setEnabled(true);
@@ -72,7 +87,7 @@ public class Recorrido extends AppCompatActivity {
         ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
         iniciar.setEnabled(false);
         pausar.setEnabled(false);
-        detener.setEnabled(true);
+        detener.setEnabled(false);
         reestablecer.setEnabled(true);
         if(pausar.getText().equals("Continuar")){
             pausar.setText("Pausar");
