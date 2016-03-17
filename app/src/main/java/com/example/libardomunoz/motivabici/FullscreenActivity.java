@@ -110,7 +110,7 @@ public class FullscreenActivity extends AppCompatActivity {
         findViewById(R.id.dummy_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FullscreenActivity.this, LoginActivity.class));
+                startActivity(new Intent(FullscreenActivity.this, MainActivity.class));
             }
         });
     }
