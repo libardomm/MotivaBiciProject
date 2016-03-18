@@ -23,6 +23,15 @@ public class PostLogin extends AppCompatActivity {
 
     }
 
+    public void informacionImportante(View view){
+
+        ImageView informacionImportante1 = (ImageView)findViewById(R.id.informacionImportante1View);
+        ImageView informacionImportante2 = (ImageView)findViewById(R.id.informacionImportante2View);
+
+        informacionImportante1.animate().alpha(0f).setDuration(3000);
+        informacionImportante2.animate().alpha(1f).setDuration(3000);
+
+    }
 
 
 }
