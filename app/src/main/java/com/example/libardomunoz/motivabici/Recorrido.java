@@ -56,7 +56,7 @@ public class Recorrido extends AppCompatActivity {
             pausar.setText("Pausar");
         }
         androidImageField.setImageResource(R.drawable.play);
-        finalizar.setEnabled(true);
+        finalizar.setEnabled(false);
     }
 
     public void pausarRecorrido(View view){
@@ -91,7 +91,7 @@ public class Recorrido extends AppCompatActivity {
         pausar.setEnabled(true);
         detener.setEnabled(true);
         reestablecer.setEnabled(false);
-        finalizar.setEnabled(true);
+        finalizar.setEnabled(false);
     }
 
     public void detenerRecorrido(View view){
