@@ -11,10 +11,10 @@
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="463dp"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="Ingenieria de Software I"
+        android:text="Proyecto Ingenieria de Software I"
         android:textColor="#33b5e5"
         android:textSize="50sp"
         android:textStyle="bold" />
