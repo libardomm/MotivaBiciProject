@@ -19,5 +19,13 @@ public class resumen_recorrido extends AppCompatActivity {
                 startActivity(new Intent(resumen_recorrido.this, PostLogin.class));
             }
         });
+
+        //Al tocar el texto "Calorías Quemadas" envía a la actividad de calorías
+        findViewById(R.id.caloriasTextView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(resumen_recorrido.this, calorias.class));
+            }
+        });
     }
 }
