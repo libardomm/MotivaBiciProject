@@ -154,7 +154,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENVIAR"
+        android:text="REGISTRARSE"
         android:id="@+id/enviarButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
