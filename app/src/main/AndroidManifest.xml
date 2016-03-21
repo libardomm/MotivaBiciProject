@@ -28,7 +28,9 @@
         <activity android:name=".Recorrido" />
         <activity android:name=".Registro" />
         <activity android:name=".PostLogin" />
-        <activity android:name=".resumen_recorrido"></activity>
+        <activity android:name=".resumen_recorrido" />
+        <activity android:name=".recorridos_anteriores" />
+        <activity android:name=".calorias"></activity>
     </application>
 
 </manifest>

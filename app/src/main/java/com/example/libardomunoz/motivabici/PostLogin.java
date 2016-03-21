@@ -15,11 +15,19 @@ public class PostLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_login);
 
-                //Al hacer click en el botón "Iniciar Sesión" envía a la actividad de recorrido
+        //Al hacer click en el botón "Iniciar Sesión" envía a la actividad de recorrido
         findViewById(R.id.iniciarRecorridoButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PostLogin.this, Recorrido.class));
+            }
+        });
+
+        //Al hacer click en el botón "Iniciar Sesión" envía a la actividad de recorrido
+        findViewById(R.id.recorridosAnterioresButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PostLogin.this, recorridos_anteriores.class));
             }
         });
 
