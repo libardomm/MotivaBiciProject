@@ -12,7 +12,7 @@ public class Recorrido extends AppCompatActivity {
 
     //Cambio en el cronometro del recorrido
 
-    Button iniciar, pausar, detener, reestablecer;
+    Button iniciar, pausar, detener, reestablecer, finalizar;
     Chronometer cronometro;
 
     @Override
@@ -23,13 +23,15 @@ public class Recorrido extends AppCompatActivity {
         iniciar = (Button)findViewById(R.id.botonIniciar);
         pausar = (Button)findViewById(R.id.botonPausar);
         detener = (Button)findViewById(R.id.botonDetener);
-        reestablecer=(Button)findViewById(R.id.botonReestablecer);
+        reestablecer = (Button)findViewById(R.id.botonReestablecer);
+        finalizar = (Button)findViewById(R.id.botonFinalizarRecorrido);
 
         ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
         iniciar.setEnabled(true);
         pausar.setEnabled(false);
         detener.setEnabled(false);
         reestablecer.setEnabled(false);
+        finalizar.setEnabled(false);
     }
 
     public void iniciarRecorrido(View view){
@@ -45,6 +47,7 @@ public class Recorrido extends AppCompatActivity {
             pausar.setText("Pausar");
         }
         androidImageField.setImageResource(R.drawable.play);
+        finalizar.setEnabled(true);
     }
 
     public void pausarRecorrido(View view){
@@ -79,6 +82,7 @@ public class Recorrido extends AppCompatActivity {
         pausar.setEnabled(true);
         detener.setEnabled(true);
         reestablecer.setEnabled(false);
+        finalizar.setEnabled(true);
     }
 
     public void detenerRecorrido(View view){
@@ -93,6 +97,7 @@ public class Recorrido extends AppCompatActivity {
             pausar.setText("Pausar");
         }
         androidImageField.setImageResource(R.drawable.stop);
+        finalizar.setEnabled(true);
     }
 
     public void restablecerCronometro(View view){
@@ -107,6 +112,7 @@ public class Recorrido extends AppCompatActivity {
             pausar.setText("Pausar");
         }
         androidImageField.setImageResource(R.drawable.stopwatch);
+        finalizar.setEnabled(false);
     }
 
 }
