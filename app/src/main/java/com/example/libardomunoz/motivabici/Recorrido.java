@@ -1,5 +1,6 @@
 package com.example.libardomunoz.motivabici;
 
+import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,14 @@ public class Recorrido extends AppCompatActivity {
         detener.setEnabled(false);
         reestablecer.setEnabled(false);
         finalizar.setEnabled(false);
+
+        //Al pulsar el botón "Finalizar recorrido" pasa a la actividad de resumen del recorrido de la aplicación
+        findViewById(R.id.botonFinalizarRecorrido).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Recorrido.this, resumen_recorrido.class));
+            }
+        });
     }
 
     public void iniciarRecorrido(View view){

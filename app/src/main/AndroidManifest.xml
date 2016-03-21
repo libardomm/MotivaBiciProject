@@ -27,7 +27,8 @@
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".Recorrido" />
         <activity android:name=".Registro" />
-        <activity android:name=".PostLogin"></activity>
+        <activity android:name=".PostLogin" />
+        <activity android:name=".resumen_recorrido"></activity>
     </application>
 
 </manifest>
