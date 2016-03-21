@@ -1,12 +1,8 @@
 package com.example.libardomunoz.motivabici;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -29,7 +25,6 @@ public class PostLogin extends AppCompatActivity {
 
     }
 
-
     public void informacionImportante(View view){
 
         ImageView informacionImportante1 = (ImageView)findViewById(R.id.informacionImportante1View);
@@ -37,10 +32,6 @@ public class PostLogin extends AppCompatActivity {
         ImageView informacionImportante3 = (ImageView)findViewById(R.id.informacionImportante3View);
         ImageView informacionImportante4 = (ImageView)findViewById(R.id.informacionImportante4View);
         ImageView informacionImportante5 = (ImageView)findViewById(R.id.informacionImportante5View);
-
-        //informacionImportante1.animate().alpha(0f).setDuration(3000);
-        //informacionImportante2.animate().alpha(1f).setDuration(3000);
-
 
         if (informacionImportante1.getAlpha() == 1f)
         {
@@ -52,7 +43,7 @@ public class PostLogin extends AppCompatActivity {
 
         }
         else if(informacionImportante2.getAlpha() == 1f){
-        // fade out bart
+        // fade out marge
         // fade in bart
 
             informacionImportante2.animate().alpha(0f).setDuration(2000);
@@ -60,21 +51,21 @@ public class PostLogin extends AppCompatActivity {
         }
         else if(informacionImportante3.getAlpha() == 1f){
             // fade out bart
-            // fade in bart
+            // fade in lisa
 
             informacionImportante3.animate().alpha(0f).setDuration(2000);
             informacionImportante4.animate().alpha(1f).setDuration(2000);
         }
         else if(informacionImportante4.getAlpha() == 1f){
-            // fade out bart
-            // fade in bart
+            // fade out lisa
+            // fade in maggie
 
             informacionImportante4.animate().alpha(0f).setDuration(2000);
             informacionImportante5.animate().alpha(1f).setDuration(2000);
         }
         else if(informacionImportante5.getAlpha() == 1f){
-            // fade out bart
-            // fade in bart
+            // fade out maggie
+            // fade in homer
 
             informacionImportante5.animate().alpha(0f).setDuration(2000);
             informacionImportante1.animate().alpha(1f).setDuration(2000);
