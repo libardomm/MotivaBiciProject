@@ -15,11 +15,14 @@ public class PostLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_login);
 
-        //Al hacer click en el botón "Iniciar Sesión" envía a la actividad de recorrido
+        //Al hacer click en el botón "Iniciar Recorrido" envía a la actividad de recorrido
         findViewById(R.id.iniciarRecorridoButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PostLogin.this, Recorrido.class));
+            }
+            public void cerrar(View view) {
+                finish();
             }
         });
 
@@ -43,8 +46,6 @@ public class PostLogin extends AppCompatActivity {
         ImageView informacionImportante6 = (ImageView)findViewById(R.id.informacionImportante6View);
         ImageView informacionImportante7 = (ImageView)findViewById(R.id.informacionImportante7View);
         ImageView informacionImportante8 = (ImageView)findViewById(R.id.informacionImportante8View);
-
-
 
         if (informacionImportante1.getAlpha() == 1f){
             informacionImportante1.animate().alpha(0f).setDuration(2000);
