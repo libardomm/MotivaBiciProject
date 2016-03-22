@@ -51,5 +51,13 @@ public class resumen_recorrido extends AppCompatActivity {
                 startActivity(new Intent(resumen_recorrido.this, distancia_recorrida.class));
             }
         });
+
+        //Al tocar el texto "Altitud máxima" envía a la actividad de calorías
+        findViewById(R.id.altitudTextView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(resumen_recorrido.this, altitud_maxima.class));
+            }
+        });
     }
 }

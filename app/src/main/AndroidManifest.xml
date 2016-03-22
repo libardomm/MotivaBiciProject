@@ -33,7 +33,8 @@
         <activity android:name=".calorias" />
         <activity android:name=".velocidad_promedio" />
         <activity android:name=".duracion_recorrido" />
-        <activity android:name=".distancia_recorrida"></activity>
+        <activity android:name=".distancia_recorrida" />
+        <activity android:name=".altitud_maxima"></activity>
     </application>
 
 </manifest>
