@@ -32,7 +32,8 @@
         <activity android:name=".recorridos_anteriores" />
         <activity android:name=".calorias" />
         <activity android:name=".velocidad_promedio" />
-        <activity android:name=".duracion_recorrido"></activity>
+        <activity android:name=".duracion_recorrido" />
+        <activity android:name=".distancia_recorrida"></activity>
     </application>
 
 </manifest>

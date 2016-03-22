@@ -43,5 +43,13 @@ public class resumen_recorrido extends AppCompatActivity {
                 startActivity(new Intent(resumen_recorrido.this, duracion_recorrido.class));
             }
         });
+
+        //Al tocar el texto "Distancia recorrida" envía a la actividad de calorías
+        findViewById(R.id.distanciaTextView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(resumen_recorrido.this, distancia_recorrida.class));
+            }
+        });
     }
 }
