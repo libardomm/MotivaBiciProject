@@ -32,61 +32,6 @@
         android:layout_marginLeft="29dp"
         android:layout_marginStart="29dp" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/informacionImportante1View"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/recorridosAnterioresButton"
-        android:src="@drawable/homer"
-        android:onClick="informacionImportante"
-        android:layout_below="@+id/mensajeTextView" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/informacionImportante2View"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/marge"
-        android:layout_above="@+id/recorridosAnterioresButton"
-        android:alpha="0"
-        android:layout_below="@+id/mensajeTextView" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/informacionImportante3View"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/bart"
-        android:layout_above="@+id/recorridosAnterioresButton"
-        android:alpha="0"
-        android:layout_below="@+id/mensajeTextView" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/informacionImportante4View"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/lisa"
-        android:layout_above="@+id/recorridosAnterioresButton"
-        android:alpha="0"
-        android:layout_below="@+id/mensajeTextView" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/informacionImportante5View"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/maggie"
-        android:alpha="0"
-        android:layout_above="@+id/recorridosAnterioresButton"
-        android:layout_alignTop="@+id/informacionImportante1View" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,5 +43,93 @@
         android:textAlignment="center"
         android:textSize="15dp"
         android:textStyle="italic" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante1View"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:src="@drawable/tip_1"
+        android:onClick="informacionImportante"
+        android:layout_below="@+id/mensajeTextView" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante2View"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/tip_2"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:alpha="0"
+        android:layout_below="@+id/mensajeTextView" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante3View"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/tip_3"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:alpha="0"
+        android:layout_below="@+id/mensajeTextView" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante4View"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/tip_4"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:alpha="0"
+        android:layout_below="@+id/mensajeTextView" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante5View"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/tip_5"
+        android:alpha="0"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:layout_alignTop="@+id/informacionImportante1View" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante6View"
+        android:layout_below="@+id/mensajeTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:src="@drawable/tip_6"
+        android:alpha="0" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante7View"
+        android:layout_below="@+id/mensajeTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:alpha="0"
+        android:src="@drawable/tip_7" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/informacionImportante8View"
+        android:layout_below="@+id/mensajeTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/recorridosAnterioresButton"
+        android:alpha="0"
+        android:src="@drawable/tip_8" />
 
 </RelativeLayout>

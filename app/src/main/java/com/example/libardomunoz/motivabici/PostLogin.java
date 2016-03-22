@@ -40,42 +40,43 @@ public class PostLogin extends AppCompatActivity {
         ImageView informacionImportante3 = (ImageView)findViewById(R.id.informacionImportante3View);
         ImageView informacionImportante4 = (ImageView)findViewById(R.id.informacionImportante4View);
         ImageView informacionImportante5 = (ImageView)findViewById(R.id.informacionImportante5View);
+        ImageView informacionImportante6 = (ImageView)findViewById(R.id.informacionImportante6View);
+        ImageView informacionImportante7 = (ImageView)findViewById(R.id.informacionImportante7View);
+        ImageView informacionImportante8 = (ImageView)findViewById(R.id.informacionImportante8View);
 
-        if (informacionImportante1.getAlpha() == 1f)
-        {
-        // fade out homer
-        // fade in marge
 
+
+        if (informacionImportante1.getAlpha() == 1f){
             informacionImportante1.animate().alpha(0f).setDuration(2000);
             informacionImportante2.animate().alpha(1f).setDuration(2000);
 
         }
         else if(informacionImportante2.getAlpha() == 1f){
-        // fade out marge
-        // fade in bart
-
             informacionImportante2.animate().alpha(0f).setDuration(2000);
             informacionImportante3.animate().alpha(1f).setDuration(2000);
         }
         else if(informacionImportante3.getAlpha() == 1f){
-            // fade out bart
-            // fade in lisa
-
             informacionImportante3.animate().alpha(0f).setDuration(2000);
             informacionImportante4.animate().alpha(1f).setDuration(2000);
         }
         else if(informacionImportante4.getAlpha() == 1f){
-            // fade out lisa
-            // fade in maggie
-
             informacionImportante4.animate().alpha(0f).setDuration(2000);
             informacionImportante5.animate().alpha(1f).setDuration(2000);
         }
         else if(informacionImportante5.getAlpha() == 1f){
-            // fade out maggie
-            // fade in homer
-
             informacionImportante5.animate().alpha(0f).setDuration(2000);
+            informacionImportante6.animate().alpha(1f).setDuration(2000);
+        }
+        else if(informacionImportante6.getAlpha() == 1f){
+            informacionImportante6.animate().alpha(0f).setDuration(2000);
+            informacionImportante7.animate().alpha(1f).setDuration(2000);
+        }
+        else if(informacionImportante7.getAlpha() == 1f){
+            informacionImportante7.animate().alpha(0f).setDuration(2000);
+            informacionImportante8.animate().alpha(1f).setDuration(2000);
+        }
+        else if(informacionImportante8.getAlpha() == 1f){
+            informacionImportante8.animate().alpha(0f).setDuration(2000);
             informacionImportante1.animate().alpha(1f).setDuration(2000);
         }
 
