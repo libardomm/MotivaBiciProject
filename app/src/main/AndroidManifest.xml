@@ -30,7 +30,8 @@
         <activity android:name=".PostLogin" />
         <activity android:name=".resumen_recorrido" />
         <activity android:name=".recorridos_anteriores" />
-        <activity android:name=".calorias"></activity>
+        <activity android:name=".calorias" />
+        <activity android:name=".velocidad_promedio"></activity>
     </application>
 
 </manifest>
