@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Recorrido extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class Recorrido extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recorrido);
+
         cronometro = (Chronometer)findViewById(R.id.cronometro);
         iniciar = (Button)findViewById(R.id.botonIniciar);
         pausar = (Button)findViewById(R.id.botonPausar);
@@ -45,7 +47,7 @@ public class Recorrido extends AppCompatActivity {
 
     public void iniciarRecorrido(View view){
         cronometro.setBase(SystemClock.elapsedRealtime());
-        cronometro.start();
+        cronometro.start(); //Inicia el cronometro
 
         ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
         iniciar.setEnabled(false);
@@ -68,9 +70,7 @@ public class Recorrido extends AppCompatActivity {
             androidImageField.setImageResource(R.drawable.pause);
         }
         else {
-
             int stoppedMilliseconds = 0;
-
             String chronoText = cronometro.getText().toString();
             String array[] = chronoText.split(":");
             if (array.length == 2) {
@@ -78,9 +78,9 @@ public class Recorrido extends AppCompatActivity {
             } else if (array.length == 3) {
                 stoppedMilliseconds = Integer.parseInt(array[0]) * 60 * 60 * 1000 + Integer.parseInt(array[1]) * 60 * 1000 + Integer.parseInt(array[2]) * 1000;
             }
-
             cronometro.setBase(SystemClock.elapsedRealtime() - stoppedMilliseconds);
             cronometro.start();
+
             ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
             pausar.setText("Pausar");
             reestablecer.setEnabled(true);
@@ -107,6 +107,11 @@ public class Recorrido extends AppCompatActivity {
         }
         androidImageField.setImageResource(R.drawable.stop);
         finalizar.setEnabled(true);
+
+        //Guarda el tiempo transcurrido en una variable tipo long
+        long tiempoTranscurrido = SystemClock.elapsedRealtime() - cronometro.getBase();
+        long tiempoRecorrido = (long)((tiempoTranscurrido / 1000) * 0.000277778);
+        //Toast.makeText(Recorrido.this, "Tiempo del recorrido: " + ((tiempoTranscurrido / 1000) * 0.000277778) + " Horas", Toast.LENGTH_SHORT).show();
     }
 
     public void restablecerCronometro(View view){

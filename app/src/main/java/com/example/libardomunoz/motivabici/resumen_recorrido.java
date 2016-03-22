@@ -3,7 +3,9 @@ package com.example.libardomunoz.motivabici;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class resumen_recorrido extends AppCompatActivity {
 
@@ -59,5 +61,12 @@ public class resumen_recorrido extends AppCompatActivity {
                 startActivity(new Intent(resumen_recorrido.this, altitud_maxima.class));
             }
         });
+    }
+
+    //Estas funciones estan solo para probar como funcionan los campos de texto!!! Los datos que aparecen en el resumen son falsos
+    public void calcularCalorias(View view){
+
+
+
     }
 }

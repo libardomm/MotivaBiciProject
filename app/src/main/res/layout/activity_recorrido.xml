@@ -71,9 +71,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imagenEstadoRecorrido"
-        android:layout_marginTop="35dp"
         android:src="@drawable/stopwatch"
+        android:layout_marginTop="87dp"
         android:layout_below="@+id/botonReestablecer"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/botonReestablecer"
+        android:layout_toEndOf="@+id/botonReestablecer" />
 
 </RelativeLayout>
