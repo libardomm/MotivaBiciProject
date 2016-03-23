@@ -75,6 +75,10 @@
         android:layout_marginTop="87dp"
         android:layout_below="@+id/botonReestablecer"
         android:layout_toRightOf="@+id/botonReestablecer"
-        android:layout_toEndOf="@+id/botonReestablecer" />
+        android:layout_toEndOf="@+id/botonReestablecer"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignWithParentIfMissing="false" />
 
 </RelativeLayout>

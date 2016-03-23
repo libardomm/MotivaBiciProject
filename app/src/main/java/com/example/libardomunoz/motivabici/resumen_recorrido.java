@@ -6,8 +6,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class resumen_recorrido extends AppCompatActivity {
+
+    Bundle datos;
+    String tiempoRecorrido;
+    TextView caloriasRecorrido;
+    TextView velocidadPromedio;
+    TextView duracionRecorrido;
+    TextView altitudMaxima;
+    TextView distanciaRecorrida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +72,29 @@ public class resumen_recorrido extends AppCompatActivity {
                 startActivity(new Intent(resumen_recorrido.this, altitud_maxima.class));
             }
         });
+
+        //Estas líneas de código estan solo para probar como funcionan los campos de texto!!! Los datos que aparecen en el resumen son falsos
+        caloriasRecorrido = (TextView)findViewById(R.id.caloriasEditText);
+        velocidadPromedio = (TextView)findViewById(R.id.velocidadEditText);
+        duracionRecorrido = (TextView)findViewById(R.id.duracionEditText);
+        altitudMaxima = (TextView)findViewById(R.id.altitudEditText);
+        distanciaRecorrida = (TextView)findViewById(R.id.distanciaEditText);
+
+        datos = getIntent().getExtras();
+        tiempoRecorrido = datos.getString("tiempoRecorrido");
+        Double t = Double.parseDouble(tiempoRecorrido);
+        Double cal = (Double)(8 * 70 * t); //70 es el peso de la persona. Este dato se debe traer de la base de datos
+        DecimalFormat df = new DecimalFormat("0.00");
+        String sPi=df.format(cal);
+        String caloriasQuemadas = sPi.toString();
+        caloriasRecorrido.setText(caloriasQuemadas + " [kcal]");
+
+        caloriasRecorrido.setEnabled(false);
+        velocidadPromedio.setEnabled(false);
+        duracionRecorrido.setEnabled(false);
+        altitudMaxima.setEnabled(false);
+        distanciaRecorrida.setEnabled(false);
+
     }
 
-    //Estas funciones estan solo para probar como funcionan los campos de texto!!! Los datos que aparecen en el resumen son falsos
-    public void calcularCalorias(View view){
-
-
-
-    }
 }
