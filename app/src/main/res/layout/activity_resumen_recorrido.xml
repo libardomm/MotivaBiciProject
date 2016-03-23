@@ -134,7 +134,8 @@
         android:id="@+id/distanciaEditText"
         android:layout_below="@+id/altitudTextView"
         android:layout_toRightOf="@+id/distanciaTextView"
-        android:layout_toEndOf="@+id/distanciaTextView" />
+        android:layout_toEndOf="@+id/distanciaTextView"
+        android:textSize="10dp" />
 
     <EditText
         android:layout_width="match_parent"

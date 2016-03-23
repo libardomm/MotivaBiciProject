@@ -45,7 +45,7 @@
         android:layout_alignTop="@+id/botonPausar"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="detenerRecorrido" />
+        android:onClick="pararCronometro" />
 
     <Button
         android:layout_width="wrap_content"
@@ -65,7 +65,8 @@
         android:id="@+id/botonFinalizarRecorrido"
         android:layout_alignBottom="@+id/botonReestablecer"
         android:layout_alignRight="@+id/botonDetener"
-        android:layout_alignEnd="@+id/botonDetener" />
+        android:layout_alignEnd="@+id/botonDetener"
+        android:onClick="detenerRecorrido" />
 
     <ImageView
         android:layout_width="wrap_content"

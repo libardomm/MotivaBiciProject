@@ -80,6 +80,7 @@ public class resumen_recorrido extends AppCompatActivity {
         altitudMaxima = (TextView)findViewById(R.id.altitudEditText);
         distanciaRecorrida = (TextView)findViewById(R.id.distanciaEditText);
 
+        //CALCULO DE CALORIAS (Recibe el tiempo del recorrido desde la actividad "Recorrido")
         datos = getIntent().getExtras();
         tiempoRecorrido = datos.getString("tiempoRecorrido");
         Double t = Double.parseDouble(tiempoRecorrido);
@@ -88,6 +89,18 @@ public class resumen_recorrido extends AppCompatActivity {
         String sPi=df.format(cal);
         String caloriasQuemadas = sPi.toString();
         caloriasRecorrido.setText(caloriasQuemadas + " [kcal]");
+
+        //CALCULO DE DURACIÓN DEL RECORRIDO
+        Double time = (Double) (t / 0.000277778);
+        Double horas = time / 3600;
+        Double minutos = time / 60 % 60;
+        Double segundos = time % 60;
+        DecimalFormat df2 = new DecimalFormat("0");
+        String Horas = df2.format(horas);
+        String Minutos = df2.format(minutos);
+        String Segundos = df2.format(segundos);
+        duracionRecorrido.setText(Horas + " h: "+ Minutos + " min: " + Segundos + " seg");
+
 
         caloriasRecorrido.setEnabled(false);
         velocidadPromedio.setEnabled(false);

@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class Recorrido extends AppCompatActivity {
 
@@ -38,6 +36,7 @@ public class Recorrido extends AppCompatActivity {
         reestablecer.setEnabled(false);
         finalizar.setEnabled(false);
 
+        /*
         //Al pulsar el botón "Finalizar recorrido" pasa a la actividad de resumen del recorrido de la aplicación
         findViewById(R.id.botonFinalizarRecorrido).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +44,7 @@ public class Recorrido extends AppCompatActivity {
                 startActivity(new Intent(Recorrido.this, resumen_recorrido.class));
             }
         });
+        */
     }
 
     public void iniciarRecorrido(View view){
@@ -96,6 +96,21 @@ public class Recorrido extends AppCompatActivity {
         finalizar.setEnabled(false);
     }
 
+    public void pararCronometro(View view) {
+        cronometro.stop();
+
+        ImageView androidImageField = (ImageView) findViewById(R.id.imagenEstadoRecorrido);
+        iniciar.setEnabled(false);
+        pausar.setEnabled(false);
+        detener.setEnabled(false);
+        reestablecer.setEnabled(true);
+        if (pausar.getText().equals("Continuar")) {
+            pausar.setText("Pausar");
+        }
+        androidImageField.setImageResource(R.drawable.stop);
+        finalizar.setEnabled(true);
+    }
+
     public void detenerRecorrido(View view){
         cronometro.stop();
 
@@ -113,14 +128,11 @@ public class Recorrido extends AppCompatActivity {
         //Guarda el tiempo transcurrido en una variable tipo long
         tiempoTranscurrido = SystemClock.elapsedRealtime() - cronometro.getBase();
         String tiempoFinal = String.valueOf(((tiempoTranscurrido / 1000) * 0.000277778));
-        Toast.makeText(Recorrido.this, "Tiempo del recorrido: " + tiempoFinal + " Horas", Toast.LENGTH_SHORT).show();
 
         //Envía el tiempo del recorrido a la actividad "Resumen recorrido"
         Intent pasarTiempo = new Intent(Recorrido.this, resumen_recorrido.class);
         pasarTiempo.putExtra("tiempoRecorrido", tiempoFinal);
         startActivity(pasarTiempo);
-
-
     }
 
     public void restablecerCronometro(View view){
@@ -137,27 +149,5 @@ public class Recorrido extends AppCompatActivity {
         androidImageField.setImageResource(R.drawable.stopwatch);
         finalizar.setEnabled(false);
     }
-
-
-    /*public void finalizarCronometro(View view){
-
-        //Guarda el tiempo transcurrido en una variable tipo long
-        tiempoTranscurrido = SystemClock.elapsedRealtime() - cronometro.getBase();
-        //Toast.makeText(Recorrido.this, "Tiempo del recorrido: " + ((tiempoTranscurrido / 1000) * 0.000277778) + " Horas", Toast.LENGTH_SHORT).show();
-
-        //Enviar el tiempo del recorrido a la actividad resumen_recorrido
-        detener.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pasarTiempo = new Intent(Recorrido.this, resumen_recorrido.class);
-                String tiempoFinal = String.valueOf(tiempoTranscurrido);
-                Toast.makeText(Recorrido.this, "Tiempo del recorrido: " + tiempoFinal + " Horas", Toast.LENGTH_SHORT).show();
-                pasarTiempo.putExtra("tiempo", tiempoFinal);
-                startActivity(pasarTiempo);
-            }
-        });
-    }*/
-
-
 
 }
