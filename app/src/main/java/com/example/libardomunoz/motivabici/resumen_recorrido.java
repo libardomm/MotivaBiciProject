@@ -42,12 +42,7 @@ public class resumen_recorrido extends AppCompatActivity {
         });
 
         //Al tocar el texto "Velocidad Promedio" envía a la actividad de calorías
-        findViewById(R.id.velocidadTextView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(resumen_recorrido.this, velocidad_promedio.class));
-            }
-        });
+
 
         //Al tocar el texto "Duración del Recorrido" envía a la actividad de calorías
         findViewById(R.id.duracionRecorridoTextView).setOnClickListener(new View.OnClickListener() {

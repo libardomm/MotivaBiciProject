@@ -3,6 +3,8 @@
     package="com.example.libardomunoz.motivabici">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -31,7 +33,6 @@
         <activity android:name=".resumen_recorrido" />
         <activity android:name=".recorridos_anteriores" />
         <activity android:name=".calorias" />
-        <activity android:name=".velocidad_promedio" />
         <activity android:name=".duracion_recorrido" />
         <activity android:name=".distancia_recorrida" />
         <activity android:name=".altitud_maxima"></activity>
