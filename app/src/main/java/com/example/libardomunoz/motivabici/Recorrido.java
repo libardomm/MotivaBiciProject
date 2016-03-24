@@ -1,15 +1,25 @@
 package com.example.libardomunoz.motivabici;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.SystemClock;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 
-public class Recorrido extends AppCompatActivity {
+public class Recorrido extends AppCompatActivity implements LocationListener {
 
     //Cambio en el cronometro del recorrido
     Button iniciar, pausar, detener, reestablecer, finalizar;
@@ -17,34 +27,52 @@ public class Recorrido extends AppCompatActivity {
 
     long tiempoTranscurrido;
 
+    LocationManager locationManager;
+    String provider;
+    Location location = new Location("l1");
+    Location location2 = new Location("l2");
+    String a;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recorrido);
 
-        cronometro = (Chronometer)findViewById(R.id.cronometro);
-        iniciar = (Button)findViewById(R.id.botonIniciar);
-        pausar = (Button)findViewById(R.id.botonPausar);
-        detener = (Button)findViewById(R.id.botonDetener);
-        reestablecer = (Button)findViewById(R.id.botonReestablecer);
-        finalizar = (Button)findViewById(R.id.botonFinalizarRecorrido);
+        cronometro = (Chronometer) findViewById(R.id.cronometro);
+        iniciar = (Button) findViewById(R.id.botonIniciar);
+        pausar = (Button) findViewById(R.id.botonPausar);
+        detener = (Button) findViewById(R.id.botonDetener);
+        reestablecer = (Button) findViewById(R.id.botonReestablecer);
+        finalizar = (Button) findViewById(R.id.botonFinalizarRecorrido);
 
-        ImageView androidImageField = (ImageView)findViewById(R.id.imagenEstadoRecorrido);
+        ImageView androidImageField = (ImageView) findViewById(R.id.imagenEstadoRecorrido);
         iniciar.setEnabled(true);
         pausar.setEnabled(false);
         detener.setEnabled(false);
         reestablecer.setEnabled(false);
         finalizar.setEnabled(false);
 
-        /*
-        //Al pulsar el botón "Finalizar recorrido" pasa a la actividad de resumen del recorrido de la aplicación
-        findViewById(R.id.botonFinalizarRecorrido).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Recorrido.this, resumen_recorrido.class));
-            }
-        });
-        */
+        //codigo referente a la geolocalizacion
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+
+        provider =locationManager.getBestProvider(new Criteria(),false);
+        int permissionCheck = ContextCompat.checkSelfPermission(Recorrido.this,
+                Manifest.permission.ACCESS_FINE_LOCATION);
+        if(permissionCheck==0) {
+            location = locationManager.getLastKnownLocation(provider);
+        }
+
+
+
+
+        if(location!=null){
+            Log.i("Location Info", "Si encontro ubicacion");
+            Log.i ("Location Info", String.valueOf(location.getAltitude()));
+
+        } else{
+            Log.i("Location Info", "No se encontro la ubiacion");
+        }
     }
 
     public void iniciarRecorrido(View view){
@@ -61,6 +89,13 @@ public class Recorrido extends AppCompatActivity {
         }
         androidImageField.setImageResource(R.drawable.play);
         finalizar.setEnabled(false);
+
+        //codigo referente a geolocalizacion
+
+
+        onLocationChanged(location);
+
+
     }
 
     public void pausarRecorrido(View view){
@@ -149,5 +184,43 @@ public class Recorrido extends AppCompatActivity {
         androidImageField.setImageResource(R.drawable.stopwatch);
         finalizar.setEnabled(false);
     }
+    //Codigo nuevo referente a la geolocalizacion
+    //--------------------------------------------------------------------------------------------------
+    @Override
+    public void onLocationChanged(Location location) {
+        Double lat= location.getLatitude();
+        Double lng=location.getLongitude();
+
+        Log.i("Longitud", lat.toString());
+        Log.i("Latitud", lng.toString());
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+        Double lat= location.getLatitude();
+        Double lng=location.getLongitude();
+
+        Log.i("Longitud", lat.toString());
+        Log.i("Latitud", lng.toString());
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+
+
+
+
+
+
+
+
 
 }
