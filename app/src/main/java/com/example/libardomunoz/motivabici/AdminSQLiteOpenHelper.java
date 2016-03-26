@@ -11,18 +11,21 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
-    public AdminSQLiteOpenHelper(Context context, String nombre, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, nombre, factory, version);
+    private static final String DB_NAME  = "AplicacionBD.sqlite";
+    private static final int DB_SCHEME_VERSION = 1;
+
+    public AdminSQLiteOpenHelper(Context context) {
+        super(context, DB_NAME, null, DB_SCHEME_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
         //aquí creamos la tabla de usuario (dni, nombre, ciud
         //ad, numero)
-        db.execSQL("create table usuario(email text primary key, nombre text, password text, edad integer, peso integer)");
+        db.execSQL(DataBaseManager.CREATE_TABLE_USUARIOS);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int version1, int version2) {
-        db.execSQL("drop table if exists usuario");
-        db.execSQL("create table usuario(email text primary key, nombre text, password text, edad integer, peso integer)");
+        db.execSQL("drop table if exists usuarios");
+        db.execSQL(DataBaseManager.CREATE_TABLE_USUARIOS);
     }
 }

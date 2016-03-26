@@ -1,6 +1,7 @@
 package com.example.libardomunoz.motivabici;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
@@ -16,9 +17,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 public class MainActivity extends Activity {
     private EditText etPass;
     private AutoCompleteTextView ActEmail;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +50,9 @@ public class MainActivity extends Activity {
         findViewById(R.id.bttIniciarSesion).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Ingresar(v)){
+                if (Ingresar(v)) {
                     startActivity(new Intent(MainActivity.this, PostLogin.class));
-                }else {
+                } else {
                     etPass.setText("");
                     ActEmail.setText("");
                 }
@@ -57,28 +68,30 @@ public class MainActivity extends Activity {
         });
 
 
-
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-    
-    public boolean Ingresar(View v){
+
+    public boolean Ingresar(View v) {
         boolean bandera;
+        DataBaseManager db = new DataBaseManager();
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                "administracion", null, 1);
-
-        SQLiteDatabase bd = admin.getWritableDatabase();
+        SQLiteDatabase bd = admin.getReadableDatabase();
         String email = ActEmail.getText().toString();
         String password = etPass.getText().toString();
 
-        String consulta = "select nombre, email from usuario where email='" +email+"' and password='"+password+"'";
+        String consulta = "select nombre, email from usuarios where email='" + email + "' and password='" + password + "'";
         Cursor fila = bd.rawQuery(
                 consulta, null);
         if (fila.moveToFirst()) {
             Toast.makeText(this, "Consulta hecha satisfactoriamente",
                     Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(this, "hora "+db.getDateTime(),
+                    Toast.LENGTH_SHORT).show();
             bandera = true;
-        } else{
+        } else {
             Toast.makeText(this, "No existe ningún usuario con ese email",
                     Toast.LENGTH_SHORT).show();
             bandera = false;
@@ -89,6 +102,45 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.example.libardomunoz.motivabici/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://com.example.libardomunoz.motivabici/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 }
 
 

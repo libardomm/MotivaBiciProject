@@ -33,8 +33,7 @@ public class Registro extends Activity {
     }
     public void Registrar(View v){
 
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,
-                    "AplicacionBD", null, 1);
+        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this);
         SQLiteDatabase bd = admin.getWritableDatabase();
 
         String email = etEmail.getText().toString();
@@ -53,7 +52,7 @@ public class Registro extends Activity {
 
         // los inserto en la base de datos
 
-        bd.insert("usuario", null, registro);
+        bd.insert("usuarios", null, registro);
         bd.close();
 
         // ponemos los campos a vacío para insertar el siguiente usuario

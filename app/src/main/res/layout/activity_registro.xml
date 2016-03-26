@@ -32,7 +32,7 @@
         android:layout_alignParentEnd="false"
         android:layout_toRightOf="@+id/nombreTextView"
         android:layout_toEndOf="@+id/nombreTextView"
-        android:layout_alignParentStart="false" />
+         />
 
     <EditText
         android:layout_width="match_parent"
